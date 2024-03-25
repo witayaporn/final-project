@@ -1,0 +1,66 @@
+name: "Issue report"
+description:  "Create a report to help us improve รายงานปัญหา"
+title: "bug: "
+labels: ["NEED_TO_LABEL", "type:bug"]
+
+body:
+- type: textarea
+  attributes:
+    label: "Description"
+    description: "Why you consider it to be an issue or a bug?"
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Expected results"
+    description: "Tell us what should happen."
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Current results"
+    description: "Tell us what happens instead."
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Steps to reproduce"
+    description: "Steps to reproduce the behavior."
+  validations:
+    required: true
+- type: input
+  id: "version"
+  attributes:
+    label: "PyThaiNLP version"
+  validations:
+    required: true
+- type: input
+  id: "python"
+  attributes:
+    label: "Python version"
+  validations:
+    required: true
+- type: input
+  id: "os"
+  attributes:
+    label: "Operating system and version"
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: More info
+    description: (Docker, VM, etc.)
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: "Possible solution"
+    description: "(Optional) Suggest a fix for the issue, or ideas how to implement the change."
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: "Files"
+    description: "(Optional) A list of relevant files for this issue."
+  validations:
+    required: false

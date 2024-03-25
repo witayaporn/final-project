@@ -1,0 +1,9 @@
+certifi==2024.2.2
+charset-normalizer==3.3.2
+idna==3.6
+numpy==1.22.4
+pythainlp==5.0.1
+python-crfsuite==0.9.10
+PyYAML==6.0.1
+requests==2.31.0
+urllib3==2.2.1

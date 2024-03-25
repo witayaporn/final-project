@@ -1,0 +1,42 @@
+name: Deploy Docs dev
+on:
+  push:
+    branches:
+    - dev
+    paths-ignore:
+      - '**.md'
+      - '**.yml'
+
+jobs:
+  release:
+    name: Build
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      env:
+        SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL: True
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest coverage coveralls
+        if [ -f docker_requirements.txt ]; then pip install -r docker_requirements.txt; fi
+        pip install deepcut
+        pip install .[full]
+        pip install boto smart_open sphinx sphinx-rtd-theme
+        python -m nltk.downloader omw-1.4
+    - name: Build sphinx documentation
+      run: |
+        cd docs && make html
+        cd ..
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        publish_dir: ./docs/_build/html
+        external_repository: PyThaiNLP/dev-docs
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
