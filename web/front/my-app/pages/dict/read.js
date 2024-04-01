@@ -19,7 +19,7 @@ function read() {
 
   return (
     <div>
-      <h1>Data from File:</h1>
+      <h1 class="text-2xl">Data from File:</h1>
       <ul className='thai'>
         {data.map((item, index) => (
           <li key={index}>{item}</li>

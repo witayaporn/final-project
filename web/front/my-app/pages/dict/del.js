@@ -51,7 +51,7 @@ function del() {
 
   return (
     <div>
-        <h2>Del New Word</h2>
+        <h1 class="text-2xl">Del New Word</h1>
         <input type="text" value={word} onChange={handleChange} />
         <button onClick={handleSubmit}>Delete</button>
     </div>
