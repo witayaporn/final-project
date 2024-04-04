@@ -17,7 +17,7 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #333;
+  background: #2a2a2a;
 }
 
 nav a{
@@ -45,7 +45,7 @@ footer {
   text-align: center;
   padding: 10px 0;
   margin-top: 10px;
-  color: #777;
+  color: #777777;
   border-top: 1px solid #eaeaea;
 }
 
@@ -105,3 +105,94 @@ table {
   border-color: rgb(148 163 184);
   padding: 10px;
 }
+
+.row {
+  position: relative;
+  height: calc(100vh - 230px);
+  width: 100%;
+  background: none;
+  border-width: 2px;
+  border-left-width: 1px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px; /* เพิ่มค่าของ border-top-left-radius */
+  border-bottom-left-radius: 10px;
+  border-color: rgb(148 163 184);
+  padding: 10px;
+}
+
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #5ea1ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #006aff;
+}
+
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.data-list {
+  list-style: none;
+  padding: 0;
+}
+
+.data-item {
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.data-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+

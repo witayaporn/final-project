@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const showConfirmationDialog = async () => {
     const result = await Swal.fire({
@@ -51,11 +52,19 @@ function add() {
   };
 
   return (
-    <div>
-      <h1 className="text-2xl">Add New Word</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={newWord} onChange={handleChange} />
-        <button type="submit">Add</button>
+    <div className="container">
+      <h1 className="title" >Add New Word</h1>
+      <form onSubmit={handleSubmit} className="form">
+        <input 
+          type="text" 
+          value={newWord} 
+          onChange={handleChange} 
+          className="input" 
+          placeholder="Enter new word" 
+        />
+        <button type="submit" className="button">
+          <AddCircleIcon/> Add
+        </button>
       </form>
     </div>
   );

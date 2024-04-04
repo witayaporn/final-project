@@ -19,6 +19,13 @@ export default function About() {
           <h1>col2</h1>
         </div>
       </div>
+
+      <div className="wrapper">
+        <div className="row">
+         <h1>This is a new row.</h1>
+        </div>
+       
+      </div>
     </div>
   );
 }
