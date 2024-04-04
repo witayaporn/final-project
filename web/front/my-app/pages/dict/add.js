@@ -52,7 +52,7 @@ function add() {
 
   return (
     <div>
-      <h1 class="text-2xl">Add New Word</h1>
+      <h1 className="text-2xl">Add New Word</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" value={newWord} onChange={handleChange} />
         <button type="submit">Add</button>
