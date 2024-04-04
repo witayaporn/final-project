@@ -6,14 +6,14 @@ file_path = os.path.join(current_dir,'file/dict.txt')
 def add_dict(newword):
     ##add = list((input("input: ").split(",")))
     newword = [x.strip(' ') for x in newword.split(",")]
-    with open(file_path, 'a') as fp:
+    with open(file_path, 'a',encoding="utf8") as fp:
         for item in newword:
             fp.write("%s\n" % item)
         #print('Done')
 
 def add_dict2(newword):
     newword = [x.strip(' ') for x in newword.split(",")]
-    with open(file_path, 'r+') as fp:
+    with open(file_path, 'r+',encoding="utf8") as fp:
         existing_words = set(fp.read().splitlines())
         #new_words = []
         #for word in newword:
@@ -31,9 +31,9 @@ def del_dict(delword):
     #delword = [x.strip(' ') for x in delword]
     if delword:
         delword = [x.strip(' ') for x in delword.split(",")]
-        with open(file_path, "r") as fp:
+        with open(file_path, "r",encoding="utf8") as fp:
             lines = fp.readlines()
-        with open(file_path, "w") as fp:
+        with open(file_path, "w",encoding="utf8") as fp:
             for item in lines:
                 if item.strip("\n") not in delword:
                     fp.write(item)
@@ -42,7 +42,7 @@ def del_dict(delword):
 
 def read_dict():
     list = []
-    with open(file_path, 'r') as fp:
+    with open(file_path, 'r', encoding="utf8") as fp:
         for item in fp:
             x = item[:-1]
             list.append(x)
