@@ -1,31 +1,72 @@
-export default function About() {
+import React, { useState } from 'react';
+import axios from 'axios';
+
+import Add from '../dict/add';
+
+
+function About() {
+
+  const [text, setText] = useState('');
+  const [result, setResult] = useState([]);
+
+  const handleTextChange = (event) => {
+    setText(event.target.value);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const params = new URLSearchParams();
+      params.append('text', text);
+
+      const response = await axios.post('http://127.0.0.1:5000/extract', params);
+      setResult(response.data);
+      console.log(response)
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   return (
     <div>
       <h1 class="text-2xl">Extraction</h1>
 
       <div className="upper-wrapper">
         <p>Test ทดสอบ</p>
-        <div class="relative h-full w-full">
-            <button class="absolute inset-y-0 right-0 w-32 font-black text-blue-800 px-3 py-2 bg-blue-400 rounded-lg hover:bg-blue-600 hover:text-white">Extract</button>
+        <div className="relative h-full w-full">
+            <button
+              className="absolute inset-y-0 right-0 w-32 font-black text-blue-800 px-3 py-2 bg-blue-400 rounded-lg hover:bg-blue-600 hover:text-white"
+              onClick={handleSubmit}
+            >
+                Extract
+            </button>
         </div>
       </div>
 
       <div className="wrapper">
         <div className="editor-wrapper">
           <h1>col1</h1>
+          <input type="text" value={text} onChange={handleTextChange} />
         </div>
 
         <div className="terminal-wrapper">
           <h1>col2</h1>
+          <ul className="data-list2">
+            {result.map((item, index) => (
+              <li key={index} className='data-item2'>
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
 
-      <div className="wrapper">
-        <div className="row">
-         <h1>This is a new row.</h1>
-        </div>
-       
       </div>
+      <div>
+          <Add/>
+      </div>
+      <add/>
+
     </div>
   );
 }
+
+export default About

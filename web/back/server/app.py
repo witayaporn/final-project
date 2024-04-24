@@ -1,7 +1,9 @@
 #import os, sys, importlib
 from flask import Flask, request
 from flask_cors import CORS
+
 from nlp.dict import *
+from nlp.model import extract
 
 app = Flask(__name__)
 CORS(app)
@@ -28,6 +30,16 @@ def delete():
     word = request.form.get('word')
     del_dict(word)
     return "done"
+
+@app.route('/extract', methods=['GET', 'POST'])
+def extraction():
+    text = request.form.get('text')
+    #text = "ทดสอบ"
+    result = extract(text)
+    #print(result)
+    return result
+    
+
 
 
 

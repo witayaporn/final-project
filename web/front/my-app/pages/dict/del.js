@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import RemoveCircleIcon from '@mui/icons-material/AddCircle';
 
 const showConfirmationDialog = async () => {
     const result = await Swal.fire({
@@ -30,7 +31,8 @@ function del() {
     setWord(event.target.value);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
         const confirmed = await showConfirmationDialog();
         if (confirmed) {
@@ -39,21 +41,33 @@ function del() {
 
             await axios.post('http://127.0.0.1:5000/del_dict', params);
         // สำหรับงานจริงๆ ควรจัดการกับการตอบกลับจากเซิร์ฟเวอร์ด้ว
-            console.log('Deleted:', word);
+            //console.log('Deleted:', word);
             //alert('word deleted successfully!');
+            Swal.fire('Success!', 'New word deleted successfully!', 'success');
             setWord('')
         }
         
     } catch (error) {
         console.error('Error:', error);
+        Swal.fire('Error!', error, 'error');
     }
   };
 
   return (
-    <div>
-        <h1 class="text-2xl">Del New Word</h1>
-        <input type="text" value={word} onChange={handleChange} />
-        <button onClick={handleSubmit}>Delete</button>
+    <div className="container">
+        <h1 class="title">Del New Word</h1>
+        <form onClick={handleSubmit} className='form'>
+          <input
+            type="text"
+            value={word}
+            onChange={handleChange}
+            className="input"
+            placeholder="Enter del word"
+          />
+          <button type="submit" className="button">
+            <RemoveCircleIcon/> Delete
+          </button>
+        </form>
     </div>
   );
 }

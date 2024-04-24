@@ -24,7 +24,7 @@ const showConfirmationDialog = async () => {
     return result.isConfirmed;
   };
 
-function add() {
+function Add() {
   const [newWord, setNewWord] = useState('');
 
   const handleChange = (event) => {
@@ -47,7 +47,8 @@ function add() {
         
     } catch (error) {
       console.error('Error adding new word:', error);
-      alert('Failed to add new word. Please try again later.');
+      Swal.fire('Error!', error, 'error');
+      //alert('Failed to add new word. Please try again later.');
     }
   };
 
@@ -55,11 +56,10 @@ function add() {
     <div className="container">
       <h1 className="title" >Add New Word</h1>
       <form onSubmit={handleSubmit} className="form">
-        <input 
-          type="text" 
+        <textarea
           value={newWord} 
           onChange={handleChange} 
-          className="input" 
+          className="input h-50"
           placeholder="Enter new word" 
         />
         <button type="submit" className="button">
@@ -70,4 +70,4 @@ function add() {
   );
 }
 
-export default add;
+export default Add;
