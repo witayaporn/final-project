@@ -10,6 +10,11 @@ function About() {
   const [result, setResult] = useState([]);
 
   const handleTextChange = (event) => {
+    //const textareaRows = event.target.value.split('\n').length; // นับจำนวนบรรทัด
+    //event.target.rows = textareaRows; // กำหนด rows ของ textarea เท่ากับจำนวนบรรทัด
+    const textarea = event.target;
+    textarea.style.height = "auto"; // รีเซ็ตความสูงก่อนที่จะปรับขึ้นหรือลง
+    textarea.style.height = `${textarea.scrollHeight}px`; // ปรับความสูงเพื่อให้พอดีกับข้อความ
     setText(event.target.value);
   };
 
@@ -25,6 +30,7 @@ function About() {
       console.error('Error:', error);
     }
   };
+
 
   return (
     <div>
@@ -43,13 +49,13 @@ function About() {
       </div>
 
       <div className="wrapper">
+
         <div className="editor-wrapper">
-          <h1>col1</h1>
-          <input type="text" value={text} onChange={handleTextChange} />
+          {/* <textarea type="text" className='resize-none bg-orange-200' cols="50" rows="20" value={text} onChange={handleTextChange} /> */}
+          <textarea type="text" value={text} onChange={handleTextChange} className="resize-none block p-2.5 w-full min-h-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."/>
         </div>
 
         <div className="terminal-wrapper">
-          <h1>col2</h1>
           <ul className="data-list2">
             {result.map((item, index) => (
               <li key={index} className='data-item2'>

@@ -28,6 +28,9 @@ function del() {
   const [word, setWord] = useState('');
 
   const handleChange = (event) => {
+    const textarea = event.target;
+    textarea.style.height = "auto"; // รีเซ็ตความสูงก่อนที่จะปรับขึ้นหรือลง
+    textarea.style.height = `${textarea.scrollHeight}px`; // ปรับความสูงเพื่อให้พอดีกับข้อความ
     setWord(event.target.value);
   };
 
@@ -56,12 +59,12 @@ function del() {
   return (
     <div className="container">
         <h1 class="title">Del New Word</h1>
-        <form onClick={handleSubmit} className='form'>
-          <input
+        <form onSubmit={handleSubmit} className='form'>
+          <textarea
             type="text"
             value={word}
             onChange={handleChange}
-            className="input"
+            className="input h-50 resize-none w-full"
             placeholder="Enter del word"
           />
           <button type="submit" className="button">

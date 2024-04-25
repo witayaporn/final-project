@@ -28,6 +28,9 @@ function Add() {
   const [newWord, setNewWord] = useState('');
 
   const handleChange = (event) => {
+    const textarea = event.target;
+    textarea.style.height = "auto"; // รีเซ็ตความสูงก่อนที่จะปรับขึ้นหรือลง
+    textarea.style.height = `${textarea.scrollHeight}px`; // ปรับความสูงเพื่อให้พอดีกับข้อความ
     setNewWord(event.target.value);
   };
 
@@ -58,8 +61,8 @@ function Add() {
       <form onSubmit={handleSubmit} className="form">
         <textarea
           value={newWord} 
-          onChange={handleChange} 
-          className="input h-50"
+          onChange={handleChange}
+          className="input h-50 resize-none w-full"
           placeholder="Enter new word" 
         />
         <button type="submit" className="button">
