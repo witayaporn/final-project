@@ -58,7 +58,7 @@ function del() {
 
   return (
     <div className="container">
-        <h1 class="title">Del New Word</h1>
+        <h1 class="title">Del Word</h1>
         <form onSubmit={handleSubmit} className='form'>
           <textarea
             type="text"

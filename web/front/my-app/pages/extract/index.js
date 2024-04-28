@@ -37,7 +37,7 @@ function About() {
       <h1 class="text-2xl">Extraction</h1>
 
       <div className="upper-wrapper">
-        <p>Test ทดสอบ</p>
+        <p></p>
         <div className="relative h-full w-full">
             <button
               className="absolute inset-y-0 right-0 w-32 font-black text-blue-800 px-3 py-2 bg-blue-400 rounded-lg hover:bg-blue-600 hover:text-white"
@@ -52,7 +52,7 @@ function About() {
 
         <div className="editor-wrapper">
           {/* <textarea type="text" className='resize-none bg-orange-200' cols="50" rows="20" value={text} onChange={handleTextChange} /> */}
-          <textarea type="text" value={text} onChange={handleTextChange} className="resize-none block p-2.5 w-full min-h-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."/>
+          <textarea type="text" value={text} onChange={handleTextChange} className="resize-none block p-2.5 w-full min-h-full text-base text-black bg-transparent" placeholder="ใส่ข้อความที่นี่"/>
         </div>
 
         <div className="terminal-wrapper">
