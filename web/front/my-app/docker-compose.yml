@@ -6,9 +6,9 @@ services:
     ports:
       - 3000:3000
     networks:
-      - web
+      - back_web
 networks:
-  web:
+  back_web:
     external: true
     
     
