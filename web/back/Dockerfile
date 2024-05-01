@@ -8,3 +8,4 @@ COPY . /code/
 WORKDIR /code/server/nlp/pythainlp
 RUN python setup.py build
 RUN python setup.py install
+WORKDIR /code
