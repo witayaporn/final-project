@@ -5,10 +5,5 @@ services:
     build: .
     ports:
       - 3000:3000
-    networks:
-      - back_web
-networks:
-  back_web:
-    external: true
     
     
