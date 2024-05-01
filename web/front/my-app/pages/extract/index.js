@@ -23,7 +23,7 @@ function About() {
       const params = new URLSearchParams();
       params.append('text', text);
 
-      const response = await axios.post('http://172.16.200.242:8000/extract', params);
+      const response = await axios.post('/extract', params);
       setResult(response.data);
       console.log(response)
     } catch (error) {

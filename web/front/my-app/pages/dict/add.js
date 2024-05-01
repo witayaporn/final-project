@@ -42,7 +42,7 @@ function Add() {
             const params = new URLSearchParams();
             params.append('word', newWord);
         
-            await axios.post('http://172.16.200.242:8000/add_dict', params);
+            await axios.post('/add_dict', params);
             Swal.fire('Success!', 'New word added successfully!', 'success');
             //alert('New word added successfully!');
             setNewWord(''); // Reset the input field after submission
