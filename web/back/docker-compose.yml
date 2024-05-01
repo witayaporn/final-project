@@ -1,0 +1,6 @@
+version: '3'
+services:
+  web:
+    container_name: web-bk
+    build: .
+    command: gunicorn --workers=2 --bind=0.0.0.0 server.app:app 
