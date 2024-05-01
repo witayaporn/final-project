@@ -6,7 +6,7 @@ function read() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://172.16.200.242:8000/read_dict'); // เรียกใช้ API ที่เตรียมไว้สำหรับการอ่านไฟล์
+        const response = await fetch('http://host.docker.internal:8000/read_dict'); // เรียกใช้ API ที่เตรียมไว้สำหรับการอ่านไฟล์
         const result = await response.json();
         setData(result);
       } catch (error) {
