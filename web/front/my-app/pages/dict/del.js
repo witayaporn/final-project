@@ -42,7 +42,7 @@ function del() {
             const params = new URLSearchParams();
             params.append('word', word);
 
-            await axios.post('http://127.0.0.1:5000/del_dict', params);
+            await axios.post('http://127.0.0.1:8000/del_dict', params);
         // สำหรับงานจริงๆ ควรจัดการกับการตอบกลับจากเซิร์ฟเวอร์ด้ว
             //console.log('Deleted:', word);
             //alert('word deleted successfully!');
