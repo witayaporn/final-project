@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import RemoveCircleIcon from '@mui/icons-material/AddCircle';
 
+const apiPrefix = require('@/config').apiPrefix;
+
 const showConfirmationDialog = async () => {
     const result = await Swal.fire({
         title: "Are you sure?",
@@ -42,7 +44,7 @@ function del() {
             const params = new URLSearchParams();
             params.append('word', word);
 
-            await axios.post('/del_dict', params);
+            await axios.post(`${apiPrefix}/del_dict`, params);
         // สำหรับงานจริงๆ ควรจัดการกับการตอบกลับจากเซิร์ฟเวอร์ด้ว
             //console.log('Deleted:', word);
             //alert('word deleted successfully!');

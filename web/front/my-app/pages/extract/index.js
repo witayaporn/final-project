@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import Add from '../dict/add';
 
+const apiPrefix = require('@/config').apiPrefix;
+
 
 function About() {
 
@@ -23,7 +25,7 @@ function About() {
       const params = new URLSearchParams();
       params.append('text', text);
 
-      const response = await axios.post('/extract', params);
+      const response = await axios.post(`${apiPrefix}/extract`, params);
       setResult(response.data);
       console.log(response)
     } catch (error) {

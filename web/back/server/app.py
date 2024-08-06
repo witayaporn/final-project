@@ -4,6 +4,7 @@ from flask_cors import CORS
 
 from nlp.dict import *
 from nlp.model import extract
+from nlp.regex import regex_date, regex_party
 
 app = Flask(__name__)
 CORS(app)
@@ -34,8 +35,10 @@ def delete():
 @app.route('/extract', methods=['GET', 'POST'])
 def extraction():
     text = request.form.get('text')
-    #text = "ทดสอบ"
-    result = extract(text)
+    #text = "ทดสอบ"\
+    ex_date = regex_date(text)
+    ex_party = regex_party(text)
+    result = extract(text, ex_date, ex_party)
     #print(result)
     return result
     

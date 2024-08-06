@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
+const apiPrefix = require('@/config').apiPrefix;
+
 const showConfirmationDialog = async () => {
     const result = await Swal.fire({
         title: "Are you sure?",
@@ -42,7 +44,7 @@ function Add() {
             const params = new URLSearchParams();
             params.append('word', newWord);
         
-            await axios.post('/add_dict', params);
+            await axios.post(`${apiPrefix}/add_dict`, params);
             Swal.fire('Success!', 'New word added successfully!', 'success');
             //alert('New word added successfully!');
             setNewWord(''); // Reset the input field after submission

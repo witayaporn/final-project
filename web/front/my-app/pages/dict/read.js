@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const apiPrefix = require('@/config').apiPrefix;
+
 function read() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('/read_dict'); // เรียกใช้ API ที่เตรียมไว้สำหรับการอ่านไฟล์
+        const response = await axios.get(`${apiPrefix}/read_dict`); // เรียกใช้ API ที่เตรียมไว้สำหรับการอ่านไฟล์
         const result = await response.data;
         setData(result);
       } catch (error) {
